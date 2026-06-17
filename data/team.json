@@ -1,0 +1,28 @@
+{
+  "specialists": [
+    {
+      "name": "Mihaela Fotescu Zamfir",
+      "title": "Logoped Principal • Specialist Disfagie",
+      "phone": "0723 326 653",
+      "email": "fotescumihaela@yahoo.co.uk",
+      "bio": "Cu peste 15 ani de experiență în logopedie, Mihaela Fotescu Zamfir este specializată în evaluarea și tratamentul disfagiei la adulți și copii.",
+      "photo": "/images/foto-mihaela.jpg"
+    },
+    {
+      "name": "Prenume Nume",
+      "title": "Logoped • Specialist Disfagie",
+      "phone": "07XX XXX XXX",
+      "email": "email@exemplu.ro",
+      "bio": "Descriere specialist.",
+      "photo": ""
+    },
+    {
+      "name": "Prenume Nume",
+      "title": "Logoped • Specialist Disfagie",
+      "phone": "07XX XXX XXX",
+      "email": "email@exemplu.ro",
+      "bio": "Descriere specialist.",
+      "photo": ""
+    }
+  ]
+}
