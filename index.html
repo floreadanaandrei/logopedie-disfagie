@@ -1313,7 +1313,13 @@ function showDetail(id, card) {
           }
         }
 
-        // Detail panel: nume, rol
+        // Card: descriere scurtă
+        if (card && s.bio) {
+          var cardBio = card.querySelector('.team-card-body > p');
+          if (cardBio) cardBio.textContent = s.bio;
+        }
+
+        // Detail panel: nume, rol, bio
         var detail = document.getElementById('detail-' + id);
         if (detail) {
           var dName = detail.querySelector('.detail-name');
@@ -1321,7 +1327,7 @@ function showDetail(id, card) {
           var dBio  = detail.querySelector('.detail-bio p');
           if (dName && s.name) dName.textContent = s.name;
           if (dRole && s.title) dRole.textContent = s.title;
-          if (dBio && s.bio && i > 0) dBio.textContent = s.bio;
+          if (dBio && s.bio) dBio.textContent = s.bio;
         }
 
         // Hero avatar name
