@@ -1282,6 +1282,54 @@ function showDetail(id, card) {
 }
 </script>
 
+<!-- Încarcă conținut site din CMS -->
+<script>
+// Conținut site (hero, secțiuni, servicii, contact)
+fetch('data/site.json').then(function(r){return r.json();}).then(function(d){
+  function setText(sel, val){ var el=document.querySelector(sel); if(el&&val) el.textContent=val; }
+  function setHTML(sel, val){ var el=document.querySelector(sel); if(el&&val) el.innerHTML=val; }
+  // Hero
+  if(d.hero){
+    setText('.hero-badge', d.hero.badge);
+    setText('.hero h1', d.hero.titlu);
+    setText('.hero-desc', d.hero.descriere);
+    setText('a.btn-primary', d.hero.btn_programare);
+    setText('a.btn-outline', d.hero.btn_echipa);
+  }
+  // Disfagie
+  if(d.disfagie){
+    setText('#disfagie .section-title', d.disfagie.titlu);
+    setText('#disfagie .section-lead', d.disfagie.descriere);
+  }
+  // Echipa
+  if(d.echipa){
+    setText('#echipa .section-title', d.echipa.titlu);
+    setText('#echipa .section-lead', d.echipa.descriere);
+  }
+  // Servicii
+  if(d.servicii){
+    setText('#servicii .section-title', d.servicii.titlu);
+    setText('#servicii .section-lead', d.servicii.descriere);
+    if(d.servicii.lista){
+      var cards=document.querySelectorAll('.service-card');
+      d.servicii.lista.forEach(function(s,i){
+        if(cards[i]){
+          var h=cards[i].querySelector('h3');
+          var p=cards[i].querySelector('p');
+          if(h&&s.titlu) h.textContent=s.titlu;
+          if(p&&s.descriere) p.textContent=s.descriere;
+        }
+      });
+    }
+  }
+  // Contact
+  if(d.contact){
+    setText('#contact .section-title', d.contact.titlu);
+    setText('.contact-intro', d.contact.intro);
+  }
+}).catch(function(){});
+</script>
+
 <!-- Încarcă date echipă din CMS -->
 <script>
 (function() {
@@ -1388,11 +1436,30 @@ function showDetail(id, card) {
           }
         }
 
-        // Hero avatar name
-        var heroNames = document.querySelectorAll('.hero-specialist-name');
-        var heroRoles = document.querySelectorAll('.hero-specialist-title');
-        if (heroNames[i] && s.name) heroNames[i].textContent = s.name;
-        if (heroRoles[i] && s.title) heroRoles[i].textContent = s.title.split('·')[0].split('•')[0].trim();
+        // Hero avatar: nume, titlu, poză
+        var heroSpecialists = document.querySelectorAll('.hero-specialist');
+        if (heroSpecialists[i]) {
+          var hName = heroSpecialists[i].querySelector('.hero-specialist-name');
+          var hRole = heroSpecialists[i].querySelector('.hero-specialist-title');
+          var hAvatar = heroSpecialists[i].querySelector('.hero-avatar');
+          if (hName && s.name) hName.textContent = s.name;
+          if (hRole && s.title) hRole.textContent = s.title.split('·')[0].split('•')[0].trim();
+          if (hAvatar && s.photo) {
+            var hImg = hAvatar.querySelector('img');
+            var hInitials = hAvatar.querySelector('.avatar-initials');
+            if (hImg) {
+              hImg.src = s.photo;
+              hImg.alt = s.name || '';
+              hImg.style.display = '';
+            } else {
+              var newHImg = document.createElement('img');
+              newHImg.src = s.photo;
+              newHImg.alt = s.name || '';
+              hAvatar.insertBefore(newHImg, hAvatar.firstChild);
+            }
+            if (hInitials) hInitials.style.display = 'none';
+          }
+        }
       });
     })
     .catch(function() {});

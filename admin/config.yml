@@ -56,3 +56,47 @@ collections:
                 widget: "list"
                 hint: "Ex: Asociația Română de Foniatrie"
                 field: { label: "Afiliere", name: "item", widget: "string" }
+
+      - label: "Conținut Site"
+        name: "site"
+        file: "data/site.json"
+        fields:
+          - label: "Secțiunea Hero (prima pagină)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Text mic deasupra titlului", name: "badge", widget: "string" }
+              - { label: "Titlu principal", name: "titlu", widget: "string" }
+              - { label: "Descriere", name: "descriere", widget: "text" }
+              - { label: "Buton Programare (text)", name: "btn_programare", widget: "string" }
+              - { label: "Buton Echipă (text)", name: "btn_echipa", widget: "string" }
+          - label: "Secțiunea Despre Disfagie"
+            name: "disfagie"
+            widget: "object"
+            fields:
+              - { label: "Titlu", name: "titlu", widget: "string" }
+              - { label: "Descriere", name: "descriere", widget: "text" }
+          - label: "Secțiunea Echipa Noastră"
+            name: "echipa"
+            widget: "object"
+            fields:
+              - { label: "Titlu", name: "titlu", widget: "string" }
+              - { label: "Descriere", name: "descriere", widget: "text" }
+          - label: "Secțiunea Ce Oferim"
+            name: "servicii"
+            widget: "object"
+            fields:
+              - { label: "Titlu", name: "titlu", widget: "string" }
+              - { label: "Descriere", name: "descriere", widget: "text" }
+              - label: "Servicii"
+                name: "lista"
+                widget: "list"
+                fields:
+                  - { label: "Titlu serviciu", name: "titlu", widget: "string" }
+                  - { label: "Descriere serviciu", name: "descriere", widget: "text" }
+          - label: "Secțiunea Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Titlu", name: "titlu", widget: "string" }
+              - { label: "Text intro", name: "intro", widget: "text" }

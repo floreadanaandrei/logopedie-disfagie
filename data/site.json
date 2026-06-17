@@ -1,0 +1,51 @@
+{
+  "hero": {
+    "badge": "Specialiști în terapia disfagiei · București",
+    "titlu": "Recuperarea deglutiției în mâini experte",
+    "descriere": "Echipă de logopezi principali cu formare internațională, dedicată evaluării și terapiei tulburărilor de deglutiție la copii și adulți.",
+    "btn_programare": "Programează o evaluare",
+    "btn_echipa": "Cunoaște echipa"
+  },
+  "disfagie": {
+    "titlu": "Tulburarea de deglutiție — evaluare și terapie specializată",
+    "descriere": "Disfagia reprezintă dificultatea de a înghiți alimente sau lichide și poate afecta semnificativ calitatea vieții. Diagnosticarea și intervenția timpurie sunt esențiale."
+  },
+  "echipa": {
+    "titlu": "Specialiști cu experiență internațională",
+    "descriere": "Fiecare dintre noi a acumulat formare specializată în centre de referință europene, aducând în practică clinică cele mai recente protocoale internaționale."
+  },
+  "servicii": {
+    "titlu": "Servicii de evaluare și terapie",
+    "descriere": "Abordare clinică completă, de la prima evaluare până la recuperarea funcției de deglutiție.",
+    "lista": [
+      {
+        "titlu": "Evaluare clinică a deglutiției",
+        "descriere": "Evaluare funcțională completă, identificarea riscului de aspirație și stabilirea profilului de deglutiție al pacientului."
+      },
+      {
+        "titlu": "Terapie individualizată",
+        "descriere": "Program de reabilitare personalizat cu tehnici directe și indirecte, adaptat diagnosticului și nevoilor fiecărui pacient."
+      },
+      {
+        "titlu": "Consiliere familie",
+        "descriere": "Instruirea aparținătorilor în tehnici de alimentare sigură, adaptarea texturii alimentelor și managementul riscurilor."
+      },
+      {
+        "titlu": "Raport și plan de îngrijire",
+        "descriere": "Documentare completă a evaluării și a progresului terapeutic, cu recomandări pentru echipa multidisciplinară."
+      },
+      {
+        "titlu": "Terapie la domiciliu",
+        "descriere": "Sesiuni de terapie la domiciliul pacientului pentru cazurile în care deplasarea este dificilă sau imposibilă."
+      },
+      {
+        "titlu": "Teleconsultație",
+        "descriere": "Evaluare și consiliere online pentru pacienții din afara Bucureștiului sau pentru follow-up post-terapie."
+      }
+    ]
+  },
+  "contact": {
+    "titlu": "Programează o evaluare",
+    "intro": "Contactează direct specialistul potrivit nevoilor tale sau completează formularul și te redirecționăm către cel mai potrivit membru al echipei."
+  }
+}
