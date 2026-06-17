@@ -1235,7 +1235,7 @@ footer p { color: rgba(255,255,255,0.75); font-size: 13px; margin-bottom: 4px; }
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Logopedie & Disfagie · Centru de specialitate</div>
-  <p>Mihaela Fotescu Zamfir · Specialist 2 · Specialist 3</p>
+  <p id="footer-names">Mihaela Fotescu Zamfir · Specialist 2 · Specialist 3</p>
   <p>© 2025 · București, România</p>
   <div class="footer-links">
     <a href="#disfagie">Despre disfagie</a>
@@ -1284,6 +1284,14 @@ function showDetail(id, card) {
 
 <!-- Încarcă conținut site din CMS -->
 <script>
+// Footer: nume specialiști din team.json
+fetch('data/team.json').then(function(r){return r.json();}).then(function(d){
+  var el = document.getElementById('footer-names');
+  if (el && d.specialists) {
+    el.textContent = d.specialists.map(function(s){ return s.name; }).join(' · ');
+  }
+}).catch(function(){});
+
 // Conținut site (hero, secțiuni, servicii, contact)
 fetch('data/site.json').then(function(r){return r.json();}).then(function(d){
   function setText(sel, val){ var el=document.querySelector(sel); if(el&&val) el.textContent=val; }
