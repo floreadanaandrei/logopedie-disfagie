@@ -4,7 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Articole și resurse despre disfagie, evaluare și tratament logopedic — scrise de specialiștii noștri." />
+  <meta property="og:title" content="Blog — Logopedie & Disfagie" />
+  <meta property="og:description" content="Articole și resurse despre disfagie, evaluare și tratament logopedic — scrise de specialiștii noștri." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://spectacular-chimera-d11458.netlify.app/blog.html" />
+  <meta property="og:image" content="https://spectacular-chimera-d11458.netlify.app/images/foto-mihaela.jpg" />
   <title>Blog — Logopedie & Disfagie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -21,7 +30,7 @@
       --radius: 12px;
     }
 
-    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    body { font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
 
     /* Skip link */
     .skip-link { position: absolute; left: -9999px; top: 0; background: var(--gold); color: var(--navy-dark); padding: .5rem 1rem; font-weight: 700; z-index: 9999; border-radius: 0 0 8px 0; }
@@ -116,6 +125,9 @@
     footer { background: var(--navy-dark); color: rgba(255,255,255,.7); text-align: center; padding: 2rem; font-size: .9rem; }
     footer a { color: var(--gold); text-decoration: none; }
 
+    .drawer-close { display: block; background: none; border: none; cursor: pointer; color: var(--white); padding: .5rem; margin-bottom: 1rem; align-self: flex-end; }
+    .drawer-close:hover { color: var(--gold); }
+
     /* SR */
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   </style>
@@ -141,7 +153,10 @@
   </button>
 </nav>
 
-<div id="mobile-drawer" class="mobile-drawer" role="dialog" aria-label="Meniu mobil">
+<div id="mobile-drawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Meniu mobil">
+  <button class="drawer-close" aria-label="Închide meniul" onclick="toggleMenu(document.querySelector('.hamburger'))">
+    <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
   <a href="index.html">Acasă</a>
   <a href="index.html#despre-disfagie">Despre disfagie</a>
   <a href="index.html#echipa">Echipa</a>
@@ -233,7 +248,7 @@
     grid.innerHTML = posts.map((post, i) => `
       <article class="post-card" aria-labelledby="post-title-${i}">
         ${post.image
-          ? `<img src="${post.image}" alt="" class="post-card-img" loading="lazy" />`
+          ? `<img src="${post.image}" alt="${post.title || ''}" class="post-card-img" loading="lazy" />`
           : `<div class="post-card-img-placeholder" aria-hidden="true">
                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
              </div>`}
@@ -288,9 +303,9 @@
           <time datetime="${post.date}">${formatDate(post.date)}</time>
           ${post.author ? `<span>de ${post.author}</span>` : ''}
         </div>
-        <h1>${post.title || ''}</h1>
+        <h2 class="article-title">${post.title || ''}</h2>
       </header>
-      ${post.image ? `<img src="${post.image}" alt="" class="article-img" />` : ''}
+      ${post.image ? `<img src="${post.image}" alt="${post.title || ''}" class="article-img" />` : ''}
       <div class="article-content">${marked.parse(post.body || '')}</div>
     `;
     document.getElementById('article-content').innerHTML = html;
@@ -303,14 +318,37 @@
     document.title = 'Blog — Logopedie & Disfagie';
   }
 
-  // ---- Nav ----
+  // ---- Nav cu focus trap ----
   function toggleMenu(btn) {
     const drawer = document.getElementById('mobile-drawer');
     const isOpen = drawer.classList.toggle('open');
-    btn.setAttribute('aria-expanded', isOpen);
-    btn.setAttribute('aria-label', isOpen ? 'Închide meniul' : 'Deschide meniul');
-    if (isOpen) drawer.querySelector('a').focus();
+    const hamburger = document.querySelector('.hamburger');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    hamburger.setAttribute('aria-label', isOpen ? 'Închide meniul' : 'Deschide meniul');
+    if (isOpen) {
+      drawer.querySelector('.drawer-close').focus();
+      drawer.addEventListener('keydown', trapFocus);
+    } else {
+      drawer.removeEventListener('keydown', trapFocus);
+      hamburger.focus();
+    }
   }
+
+  function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    const drawer = document.getElementById('mobile-drawer');
+    const focusable = Array.from(drawer.querySelectorAll('button, a'));
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      const drawer = document.getElementById('mobile-drawer');
+      if (drawer.classList.contains('open')) toggleMenu(document.querySelector('.hamburger'));
+    }
+  });
 
   loadPosts();
 </script>
