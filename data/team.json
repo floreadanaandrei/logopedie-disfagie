@@ -17,12 +17,12 @@
       "photo": ""
     },
     {
-      "name": "Prenume Nume",
-      "title": "Logoped • Specialist Disfagie",
-      "phone": "07XX XXX XXX",
-      "email": "email@exemplu.ro",
-      "bio": "Descriere specialist.",
-      "photo": ""
+      "name": "Fotescu Andreu",
+      "title": "Test 2",
+      "phone": "0788888888",
+      "email": "andrei@exemplu.ro",
+      "bio": "Tralalalala",
+      "photo": "/images/poza-profil-2.jpg"
     }
   ]
 }
