@@ -3,7 +3,10 @@ title: Ce este disfagia și cum afectează calitatea vieții
 date: 2026-06-17
 author: Mihaela Fotescu Zamfir
 category: Disfagie
-excerpt: Disfagia reprezintă dificultatea de a înghiți și poate afecta persoane de toate vârstele. Aflați care sunt semnele de alarmă și când trebuie să solicitați ajutor specializat.
+excerpt: Disfagia reprezintă dificultatea de a înghiți și poate afecta persoane
+  de toate vârstele. Aflați care sunt semnele de alarmă și când trebuie să
+  solicitați ajutor specializat.
+image: /images/foto-mihaela.jpg
 ---
 
 ## Ce este disfagia?
