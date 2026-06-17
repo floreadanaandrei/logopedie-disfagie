@@ -1313,13 +1313,21 @@ function showDetail(id, card) {
           }
         }
 
-        // Card: descriere scurtă
-        if (card && s.bio) {
-          var cardBio = card.querySelector('.team-card-body > p');
-          if (cardBio) cardBio.textContent = s.bio;
+        // Card: descriere scurtă + poză
+        if (card) {
+          if (s.bio) {
+            var cardBio = card.querySelector('.team-card-body > p');
+            if (cardBio) cardBio.textContent = s.bio;
+          }
+          if (s.photo) {
+            var cardImg = card.querySelector('.team-photo img');
+            var cardInitials = card.querySelector('.team-photo .initials');
+            if (cardImg) { cardImg.src = s.photo; cardImg.style.display = ''; }
+            if (cardInitials) cardInitials.style.display = 'none';
+          }
         }
 
-        // Detail panel: nume, rol, bio
+        // Detail panel: nume, rol, bio, poză
         var detail = document.getElementById('detail-' + id);
         if (detail) {
           var dName = detail.querySelector('.detail-name');
@@ -1328,6 +1336,21 @@ function showDetail(id, card) {
           if (dName && s.name) dName.textContent = s.name;
           if (dRole && s.title) dRole.textContent = s.title;
           if (dBio && s.bio) dBio.textContent = s.bio;
+          if (s.photo) {
+            var dImg = detail.querySelector('.detail-photo img');
+            var dInitials = detail.querySelector('.detail-photo .initials-lg');
+            if (dImg) { dImg.src = s.photo; dImg.style.display = ''; }
+            else {
+              var dPhoto = detail.querySelector('.detail-photo');
+              if (dPhoto) {
+                var newImg = document.createElement('img');
+                newImg.src = s.photo;
+                newImg.alt = s.name || '';
+                dPhoto.insertBefore(newImg, dPhoto.firstChild);
+              }
+            }
+            if (dInitials) dInitials.style.display = 'none';
+          }
         }
 
         // Hero avatar name
