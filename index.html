@@ -1280,6 +1280,61 @@ function showDetail(id, card) {
 }
 </script>
 
+<!-- Încarcă date echipă din CMS -->
+<script>
+(function() {
+  var ids = ['mihaela', 'specialist2', 'specialist3'];
+
+  fetch('data/team.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var specs = data.specialists;
+      if (!specs) return;
+      specs.forEach(function(s, i) {
+        var id = ids[i];
+        if (!id) return;
+
+        // Card: nume, rol, telefon, email
+        var card = document.querySelector('[onclick*="' + id + '"]');
+        if (card) {
+          var nameEl = card.querySelector('.team-card-name');
+          var roleEl = card.querySelector('.team-card-role');
+          var phoneA = card.querySelector('a[href^="tel"]');
+          var emailA = card.querySelector('a[href^="mailto"]');
+          if (nameEl && s.name) nameEl.textContent = s.name;
+          if (roleEl && s.title) roleEl.textContent = s.title;
+          if (phoneA && s.phone) {
+            phoneA.href = 'tel:+4' + s.phone.replace(/\s/g, '');
+            phoneA.lastChild.textContent = ' ' + s.phone;
+          }
+          if (emailA && s.email) {
+            emailA.href = 'mailto:' + s.email;
+            emailA.lastChild.textContent = ' ' + s.email;
+          }
+        }
+
+        // Detail panel: nume, rol
+        var detail = document.getElementById('detail-' + id);
+        if (detail) {
+          var dName = detail.querySelector('.detail-name');
+          var dRole = detail.querySelector('.detail-role');
+          var dBio  = detail.querySelector('.detail-bio p');
+          if (dName && s.name) dName.textContent = s.name;
+          if (dRole && s.title) dRole.textContent = s.title;
+          if (dBio && s.bio && i > 0) dBio.textContent = s.bio;
+        }
+
+        // Hero avatar name
+        var heroNames = document.querySelectorAll('.hero-specialist-name');
+        var heroRoles = document.querySelectorAll('.hero-specialist-title');
+        if (heroNames[i] && s.name) heroNames[i].textContent = s.name;
+        if (heroRoles[i] && s.title) heroRoles[i].textContent = s.title.split('·')[0].split('•')[0].trim();
+      });
+    })
+    .catch(function() {});
+})();
+</script>
+
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
   if (window.netlifyIdentity) {
