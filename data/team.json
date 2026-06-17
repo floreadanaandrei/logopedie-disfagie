@@ -7,12 +7,9 @@
       "email": "fotescumihaela@yahoo.co.uk",
       "bio": "Cu peste 15 ani de experiență în logopedie, Mihaela Fotescu Zamfir este specializată în evaluarea și tratamentul disfagiei la adulți și copii.",
       "photo": "/images/foto-mihaela.jpg",
-      "tags": [
-        "Disfagie",
-        "Implant cohlear",
-        "Voce",
-        "Formator"
-      ]
+      "tags": ["Disfagie", "Implant cohlear", "Voce", "Formator"],
+      "specializari": ["Disfagie — manevre directe și indirecte", "Terapia auditiv-verbală post implant cohlear", "Tulburări de voce și afonie", "Demutizare pacienți hipoacuzici", "Terapie verbală neurologică"],
+      "afilieri": ["Asociația Română de Foniatrie", "Colegiul Psihologilor din București", "Asociația Logopezilor din România", "Referent UMF Carol Davila București"]
     },
     {
       "name": "Dana Andrei",
@@ -21,10 +18,9 @@
       "email": "email@exemplu.ro",
       "bio": "cum scheme?",
       "photo": "",
-      "tags": [
-        "Dans",
-        "Balet"
-      ]
+      "tags": ["Dans", "Balet"],
+      "specializari": ["De completat"],
+      "afilieri": ["De completat"]
     },
     {
       "name": "Fotescu Andreu",
@@ -33,11 +29,9 @@
       "email": "andrei@exemplu.ro",
       "bio": "Tralalalala",
       "photo": "/images/poza_profil_03aug2022_testlio.jpg",
-      "tags": [
-        "Disfagie",
-        "Pediatrie",
-        "AVC"
-      ]
+      "tags": ["Disfagie", "Pediatrie", "AVC"],
+      "specializari": ["De completat"],
+      "afilieri": ["De completat"]
     }
   ]
 }

@@ -1324,7 +1324,18 @@ function showDetail(id, card) {
           if (s.photo) {
             var cardImg = card.querySelector('.team-photo img');
             var cardInitials = card.querySelector('.team-photo .initials');
-            if (cardImg) { cardImg.src = s.photo; cardImg.style.display = ''; }
+            if (cardImg) {
+              cardImg.src = s.photo;
+              cardImg.style.display = '';
+            } else {
+              var teamPhoto = card.querySelector('.team-photo');
+              if (teamPhoto) {
+                var newImg = document.createElement('img');
+                newImg.src = s.photo;
+                newImg.alt = s.name || '';
+                teamPhoto.insertBefore(newImg, teamPhoto.firstChild);
+              }
+            }
             if (cardInitials) cardInitials.style.display = 'none';
           }
           if (s.tags && s.tags.length) {
@@ -1360,6 +1371,20 @@ function showDetail(id, card) {
               }
             }
             if (dInitials) dInitials.style.display = 'none';
+          }
+          if (s.specializari && s.specializari.length) {
+            var specList = detail.querySelectorAll('.detail-section')[0];
+            if (specList) {
+              var ul = specList.querySelector('.detail-list');
+              if (ul) ul.innerHTML = s.specializari.map(function(x) { return '<li>' + x + '</li>'; }).join('');
+            }
+          }
+          if (s.afilieri && s.afilieri.length) {
+            var afList = detail.querySelectorAll('.detail-section')[1];
+            if (afList) {
+              var ul2 = afList.querySelector('.detail-list');
+              if (ul2) ul2.innerHTML = s.afilieri.map(function(x) { return '<li>' + x + '</li>'; }).join('');
+            }
           }
         }
 

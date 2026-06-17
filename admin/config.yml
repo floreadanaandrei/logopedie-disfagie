@@ -46,3 +46,13 @@ collections:
                 widget: "list"
                 hint: "Ex: Disfagie, Neurologie, Pediatrie"
                 field: { label: "Etichetă", name: "tag", widget: "string" }
+              - label: "Specializări (listă detaliată)"
+                name: "specializari"
+                widget: "list"
+                hint: "Apare în panoul extins al specialistului"
+                field: { label: "Specializare", name: "item", widget: "string" }
+              - label: "Afilieri profesionale"
+                name: "afilieri"
+                widget: "list"
+                hint: "Ex: Asociația Română de Foniatrie"
+                field: { label: "Afiliere", name: "item", widget: "string" }
