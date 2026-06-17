@@ -1436,6 +1436,29 @@ fetch('data/site.json').then(function(r){return r.json();}).then(function(d){
           }
         }
 
+        // Contact: nume, titlu, telefon, email
+        var contactBlocks = document.querySelectorAll('.contact-specialist');
+        if (contactBlocks[i]) {
+          var cName = contactBlocks[i].querySelector('.contact-specialist-name');
+          var cRole = contactBlocks[i].querySelector('.contact-specialist-role');
+          var cPhone = contactBlocks[i].querySelector('a[href^="tel"]');
+          var cEmail = contactBlocks[i].querySelector('a[href^="mailto"]');
+          if (cName && s.name) cName.textContent = s.name;
+          if (cRole && s.title) cRole.textContent = s.title;
+          if (cPhone && s.phone) {
+            cPhone.href = 'tel:+4' + s.phone.replace(/\s/g, '');
+            cPhone.lastChild.textContent = ' ' + s.phone;
+          }
+          if (cEmail && s.email) {
+            cEmail.href = 'mailto:' + s.email;
+            cEmail.lastChild.textContent = ' ' + s.email;
+          }
+        }
+
+        // Selectul din formular
+        var opts = document.querySelectorAll('#specialist option');
+        if (opts[i + 1] && s.name) opts[i + 1].textContent = s.name;
+
         // Hero avatar: nume, titlu, poză
         var heroSpecialists = document.querySelectorAll('.hero-specialist');
         if (heroSpecialists[i]) {
