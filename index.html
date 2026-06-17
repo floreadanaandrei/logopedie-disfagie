@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Centru de Logopedie și Terapia Disfagiei — echipă de specialiști cu experiență internațională în evaluarea și recuperarea tulburărilor de deglutiție.">
+<title>Centru de Logopedie & Disfagie — Echipă de Specialiști</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy:        #1B3A5C;
+  --navy-light:  #254E7A;
+  --navy-deep:   #0F2238;
+  --gold:        #C9A84C;
+  --gold-light:  #E2C97E;
+  --gold-pale:   #FDF6E3;
+  --text:        #1A1A18;
+  --text-mid:    #4A4A48;
+  --text-light:  #6A6A68;
+  --bg:          #F8F9FC;
+  --white:       #ffffff;
+  --border:      #E2E6ED;
+  --serif:       'Playfair Display', Georgia, serif;
+  --sans:        'Inter', system-ui, sans-serif;
+  --radius:      14px;
+  --radius-sm:   8px;
+  --shadow:      0 4px 24px rgba(27,58,92,0.10);
+  --shadow-lg:   0 8px 40px rgba(27,58,92,0.15);
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* SKIP LINK */
+.skip-link {
+  position: absolute; top: -100px; left: 1rem;
+  background: var(--navy); color: #fff;
+  padding: 8px 16px; border-radius: var(--radius-sm);
+  font-size: 14px; font-weight: 600;
+  text-decoration: none; z-index: 9999; transition: top .2s;
+}
+.skip-link:focus { top: 1rem; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* =====================
+   NAVIGATION
+   ===================== */
+nav {
+  background: var(--navy-deep);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 1rem;
+}
+
+.logo-wrap {
+  display: flex; align-items: center;
+  gap: 14px; flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 46px; height: 46px;
+  background: var(--gold);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-text { display: flex; flex-direction: column; }
+.logo-name {
+  font-family: var(--serif);
+  font-size: 15px; font-weight: 700;
+  color: #ffffff; line-height: 1.2; white-space: nowrap;
+}
+.logo-sub {
+  font-size: 11px; color: rgba(255,255,255,0.6);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  font-weight: 400; white-space: nowrap;
+}
+
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: rgba(255,255,255,0.75);
+  font-size: 13px; font-weight: 500; white-space: nowrap;
+  transition: color .2s; letter-spacing: 0.02em;
+}
+.nav-links a:hover { color: var(--gold-light); }
+
+.nav-cta {
+  background: var(--gold); color: var(--navy-deep);
+  border: none; padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-size: 13px; font-weight: 700;
+  cursor: pointer; font-family: var(--sans);
+  white-space: nowrap; flex-shrink: 0;
+  transition: background .2s;
+  text-decoration: none; display: inline-block;
+  letter-spacing: 0.02em;
+}
+.nav-cta:hover { background: var(--gold-light); }
+
+.nav-hamburger {
+  display: none; background: none;
+  border: none; cursor: pointer; padding: 8px; flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: #ffffff; margin: 5px 0;
+  border-radius: 2px; transition: all .3s;
+}
+
+.nav-drawer {
+  display: none;
+  position: fixed; top: 76px; left: 0; right: 0;
+  background: var(--navy-deep);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 1rem 1.5rem 1.5rem;
+  z-index: 99; flex-direction: column; gap: 0.25rem;
+}
+.nav-drawer.open { display: flex; }
+.nav-drawer a {
+  text-decoration: none; color: rgba(255,255,255,0.8);
+  font-size: 15px; font-weight: 500;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: color .2s;
+}
+.nav-drawer a:last-child { border-bottom: none; }
+.nav-drawer a:hover { color: var(--gold-light); }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* =====================
+   HERO
+   ===================== */
+.hero {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 60%, #1E4A7A 100%);
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(201,168,76,0.2);
+  color: var(--gold-light);
+  font-size: 11px; letter-spacing: 0.15em;
+  text-transform: uppercase; padding: 6px 18px;
+  border-radius: 100px; margin-bottom: 1.75rem;
+  font-weight: 600; border: 1px solid rgba(201,168,76,0.35);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  color: #ffffff; font-weight: 700;
+  line-height: 1.15; margin-bottom: 1rem;
+  max-width: 800px; margin-left: auto; margin-right: auto;
+}
+
+.hero h1 em {
+  color: var(--gold-light);
+  font-style: normal;
+}
+
+.hero-desc {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.1rem; line-height: 1.85;
+  max-width: 620px; margin: 0 auto 2.5rem;
+}
+
+.hero-actions {
+  display: flex; gap: 1rem;
+  justify-content: center; flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.btn-primary {
+  background: var(--gold); color: var(--navy-deep);
+  padding: 14px 32px; border-radius: var(--radius-sm);
+  font-weight: 700; font-size: 15px;
+  border: 2px solid var(--gold);
+  font-family: var(--sans); transition: all .2s;
+  text-decoration: none; display: inline-block;
+  letter-spacing: 0.02em;
+}
+.btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); }
+
+.btn-outline {
+  background: transparent; color: #ffffff;
+  padding: 14px 32px; border-radius: var(--radius-sm);
+  font-weight: 600; font-size: 15px;
+  border: 2px solid rgba(255,255,255,0.45);
+  font-family: var(--sans); transition: all .2s;
+  text-decoration: none; display: inline-block;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: #ffffff; }
+
+/* TEAM PREVIEW in hero */
+.hero-team {
+  display: flex; justify-content: center; gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-specialist {
+  display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+}
+
+.hero-avatar {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  overflow: hidden;
+  background: var(--navy-light);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.hero-avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+}
+
+.avatar-initials {
+  font-family: var(--serif);
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--gold-light);
+}
+
+.hero-specialist-name {
+  font-size: 13px; font-weight: 600;
+  color: #ffffff; text-align: center;
+  line-height: 1.3;
+}
+
+.hero-specialist-title {
+  font-size: 11px; color: rgba(255,255,255,0.6);
+  text-align: center; margin-top: -4px;
+}
+
+/* =====================
+   STATS BAR
+   ===================== */
+.stats-bar {
+  background: var(--gold);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.stat {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-right: 1px solid rgba(27,58,92,0.15);
+}
+.stat:last-child { border-right: none; }
+
+.stat-num {
+  font-family: var(--serif);
+  font-size: 2.2rem; font-weight: 700;
+  color: var(--navy-deep); display: block; line-height: 1;
+}
+.stat-label {
+  font-size: 11px; color: rgba(15,34,56,0.75);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin-top: 5px; display: block; font-weight: 600;
+}
+
+/* =====================
+   SECTION BASE
+   ===================== */
+section { padding: 5rem 2rem; }
+.section-inner { max-width: 1000px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold);
+  font-weight: 700; margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700; color: var(--text);
+  margin-bottom: 1.25rem; line-height: 1.15;
+}
+.section-title span { color: var(--navy); }
+.section-lead {
+  font-size: 1.05rem; color: var(--text-mid);
+  max-width: 660px; line-height: 1.85;
+}
+
+/* =====================
+   DISFAGIE INFO
+   ===================== */
+#disfagie { background: var(--white); }
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3.5rem;
+}
+
+.info-visual {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  border-radius: var(--radius);
+  padding: 3rem 2.5rem;
+  color: white;
+}
+
+.info-visual h3 {
+  font-family: var(--serif);
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--gold-light); margin-bottom: 1.5rem;
+}
+
+.symptom-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+.symptom-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 14px; color: rgba(255,255,255,0.88);
+  line-height: 1.5;
+}
+.symptom-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold); flex-shrink: 0; margin-top: 6px;
+}
+
+.info-content h3 {
+  font-family: var(--serif);
+  font-size: 1.3rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 1rem;
+}
+.info-content p {
+  font-size: 14.5px; color: var(--text-mid);
+  line-height: 1.85; margin-bottom: 1.1rem;
+}
+
+.approach-list { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.approach-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 14px; color: var(--text-mid);
+}
+.approach-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.3);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* =====================
+   TEAM
+   ===================== */
+#echipa { background: var(--bg); }
+
+.team-intro {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+.team-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow .25s, border-color .25s;
+  cursor: pointer;
+}
+.team-card:hover, .team-card.active {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+}
+.team-card.active { border-width: 2px; }
+
+.team-card-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  padding: 2rem 1.5rem;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1rem; text-align: center;
+}
+
+.team-photo {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  overflow: hidden;
+  background: var(--navy-light);
+  display: flex; align-items: center; justify-content: center;
+}
+.team-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  display: block;
+}
+.team-photo .initials {
+  font-family: var(--serif); font-size: 1.6rem;
+  font-weight: 700; color: var(--gold-light);
+}
+
+.team-card-name {
+  font-family: var(--serif);
+  font-size: 1.1rem; font-weight: 700;
+  color: #ffffff; line-height: 1.2;
+}
+.team-card-role {
+  font-size: 12px; color: var(--gold-light);
+  font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.team-card-body { padding: 1.5rem; }
+.team-card-body p {
+  font-size: 13.5px; color: var(--text-mid);
+  line-height: 1.75; margin-bottom: 1rem;
+}
+
+.team-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1rem; }
+.team-tag {
+  font-size: 11px; padding: 3px 10px;
+  background: var(--gold-pale); color: var(--navy);
+  border-radius: 100px; font-weight: 600;
+  letter-spacing: 0.05em; border: 1px solid rgba(201,168,76,0.3);
+}
+
+.team-contact {
+  display: flex; flex-direction: column; gap: 6px;
+  padding-top: 1rem; border-top: 1px solid var(--border);
+}
+.team-contact a {
+  font-size: 13px; color: var(--navy);
+  text-decoration: none; font-weight: 500;
+  display: flex; align-items: center; gap: 8px;
+  transition: color .2s;
+}
+.team-contact a:hover { color: var(--gold); }
+.team-contact svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.8; flex-shrink: 0; }
+
+/* TEAM DETAIL */
+.team-detail {
+  margin-top: 3rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 3rem;
+  display: none;
+}
+.team-detail.visible { display: block; }
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.detail-photo {
+  width: 100%; aspect-ratio: 3/4;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.detail-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+}
+.detail-photo .initials-lg {
+  font-family: var(--serif); font-size: 3rem;
+  font-weight: 700; color: var(--gold-light);
+}
+
+.detail-name {
+  font-family: var(--serif);
+  font-size: 1.9rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 0.25rem;
+}
+.detail-role {
+  font-size: 12px; color: var(--gold);
+  font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; margin-bottom: 1.25rem;
+}
+.detail-bio p {
+  font-size: 14.5px; color: var(--text-mid);
+  line-height: 1.85; margin-bottom: 1rem;
+}
+
+.detail-sections { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
+.detail-section h4 {
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-light); font-weight: 700; margin-bottom: 0.75rem;
+}
+.detail-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.detail-list li {
+  font-size: 13.5px; color: var(--text-mid);
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.detail-list li::before {
+  content: ''; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--gold);
+  flex-shrink: 0; margin-top: 7px;
+}
+
+/* =====================
+   SERVICII
+   ===================== */
+#servicii { background: var(--navy-deep); }
+#servicii .section-eyebrow { color: var(--gold-light); }
+#servicii .section-title { color: #ffffff; }
+#servicii .section-lead { color: rgba(255,255,255,0.75); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.service-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem;
+  transition: background .25s, border-color .25s;
+}
+.service-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(201,168,76,0.4);
+}
+
+.service-icon {
+  width: 52px; height: 52px;
+  background: rgba(201,168,76,0.15);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.25rem;
+}
+.service-icon svg { width: 24px; height: 24px; stroke: var(--gold-light); fill: none; stroke-width: 1.6; }
+
+.service-card h3 {
+  font-family: var(--serif);
+  font-size: 1.05rem; font-weight: 700;
+  color: #ffffff; margin-bottom: 0.6rem; line-height: 1.3;
+}
+.service-card p { font-size: 13.5px; color: rgba(255,255,255,0.72); line-height: 1.75; }
+
+/* =====================
+   CONTACT
+   ===================== */
+#contact { background: var(--bg); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.contact-info { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.contact-intro {
+  font-size: 14.5px; color: var(--text-mid);
+  line-height: 1.85; margin-bottom: 0.5rem;
+}
+
+.contact-specialist {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.contact-specialist-name {
+  font-weight: 700; font-size: 14px; color: var(--navy);
+}
+.contact-specialist-role {
+  font-size: 11px; color: var(--gold);
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+}
+.contact-links { display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+.contact-links a {
+  font-size: 13px; color: var(--text-mid);
+  text-decoration: none; display: flex; align-items: center; gap: 8px;
+  transition: color .2s;
+}
+.contact-links a:hover { color: var(--navy); }
+.contact-links svg { width: 14px; height: 14px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; }
+
+.contact-form {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+}
+.contact-form h3 {
+  font-family: var(--serif);
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 0.3rem;
+}
+.contact-form > p { font-size: 13.5px; color: var(--text-mid); margin-bottom: 1rem; }
+
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
+.form-group label { font-size: 13px; font-weight: 600; color: var(--text-mid); }
+.form-group input, .form-group textarea, .form-group select {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-size: 14px; font-family: var(--sans);
+  color: var(--text); outline: none;
+  transition: border-color .2s;
+  width: 100%;
+}
+.form-group input:focus-visible,
+.form-group textarea:focus-visible,
+.form-group select:focus-visible {
+  border-color: var(--navy);
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+.form-group textarea { min-height: 110px; resize: vertical; }
+.form-submit {
+  background: var(--navy); color: #ffffff;
+  border: none; padding: 13px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 15px; font-weight: 700;
+  cursor: pointer; font-family: var(--sans);
+  transition: background .2s; width: 100%;
+  letter-spacing: 0.02em;
+}
+.form-submit:hover { background: var(--navy-light); }
+
+/* =====================
+   FOOTER
+   ===================== */
+footer {
+  background: var(--navy-deep);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.footer-logo {
+  font-family: var(--serif);
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--gold-light); margin-bottom: 0.5rem;
+}
+footer p { color: rgba(255,255,255,0.45); font-size: 13px; margin-bottom: 4px; }
+.footer-links {
+  display: flex; gap: 1.5rem; justify-content: center;
+  margin-top: 1.25rem; flex-wrap: wrap;
+}
+.footer-links a {
+  color: rgba(255,255,255,0.45); font-size: 12px;
+  text-decoration: none; transition: color .2s;
+}
+.footer-links a:hover { color: var(--gold-light); }
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+@media (max-width: 960px) {
+  .team-intro { grid-template-columns: 1fr 1fr; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .info-grid { grid-template-columns: 1fr; }
+  .detail-sections { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  nav { padding: 0 1rem; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: block; }
+  .hero { padding: 3.5rem 1.25rem 3rem; }
+  .hero-team { gap: 1rem; }
+  .hero-avatar { width: 80px; height: 80px; }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .team-intro { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .detail-grid { grid-template-columns: 1fr; }
+  section { padding: 3.5rem 1.25rem; }
+}
+
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Sari la conținut</a>
+
+<!-- NAV -->
+<nav aria-label="Navigare principală">
+  <a href="#top" class="logo-wrap">
+    <div class="logo-mark">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <path d="M8 10Q8 5 14 5Q20 5 20 10Q20 15 14 18L14 23" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="14" cy="25" r="1.5" fill="white"/>
+        <path d="M6 12Q4 12 4 15Q4 18 6 18" stroke="white" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        <path d="M22 12Q24 12 24 15Q24 18 22 18" stroke="white" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span class="logo-name">Logopedie & Disfagie</span>
+      <span class="logo-sub">Centru de specialitate</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#disfagie">Despre disfagie</a></li>
+    <li><a href="#echipa">Echipa</a></li>
+    <li><a href="#servicii">Servicii</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <a href="#contact" class="nav-cta">Programează evaluare</a>
+
+  <button class="nav-hamburger" aria-label="Deschide meniul" aria-expanded="false" aria-controls="mobile-drawer" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<nav id="mobile-drawer" class="nav-drawer" aria-label="Navigare mobilă">
+  <a href="#disfagie">Despre disfagie</a>
+  <a href="#echipa">Echipa</a>
+  <a href="#servicii">Servicii</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" style="color: var(--gold-light); font-weight: 700;">Programează evaluare</a>
+</nav>
+
+<!-- HERO -->
+<main id="main-content">
+<header id="top" class="hero">
+  <div class="hero-badge">Specialiști în terapia disfagiei · București</div>
+  <h1>Recuperarea <em>deglutiției</em> în mâini experte</h1>
+  <p class="hero-desc">Echipă de logopezi principali cu formare internațională, dedicată evaluării și terapiei tulburărilor de deglutiție la copii și adulți.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Programează o evaluare</a>
+    <a href="#echipa" class="btn-outline">Cunoaște echipa</a>
+  </div>
+
+  <div class="hero-team" role="list" aria-label="Echipa de specialiști">
+    <div class="hero-specialist" role="listitem">
+      <div class="hero-avatar">
+        <img src="images/foto-mihaela.jpg" alt="Mihaela Fotescu Zamfir, Logoped Principal" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <span class="avatar-initials" style="display:none">MF</span>
+      </div>
+      <span class="hero-specialist-name">Mihaela Fotescu Zamfir</span>
+      <span class="hero-specialist-title">Logoped Principal</span>
+    </div>
+    <div class="hero-specialist" role="listitem">
+      <div class="hero-avatar">
+        <span class="avatar-initials">S2</span>
+      </div>
+      <span class="hero-specialist-name">Specialist 2</span>
+      <span class="hero-specialist-title">Logoped</span>
+    </div>
+    <div class="hero-specialist" role="listitem">
+      <div class="hero-avatar">
+        <span class="avatar-initials">S3</span>
+      </div>
+      <span class="hero-specialist-name">Specialist 3</span>
+      <span class="hero-specialist-title">Logoped</span>
+    </div>
+  </div>
+</header>
+
+<!-- STATS BAR -->
+<div class="stats-bar" aria-label="Statistici">
+  <div class="stat">
+    <span class="stat-num">3</span>
+    <span class="stat-label">specialiști</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">80+</span>
+    <span class="stat-label">ani experiență cumulată</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">5</span>
+    <span class="stat-label">țări de formare</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">100%</span>
+    <span class="stat-label">abordare individualizată</span>
+  </div>
+</div>
+
+<!-- DESPRE DISFAGIE -->
+<section id="disfagie">
+  <div class="section-inner">
+    <div class="section-eyebrow">Ce este disfagia</div>
+    <h2 class="section-title">Tulburarea de deglutiție — <span>evaluare și terapie specializată</span></h2>
+    <p class="section-lead">Disfagia reprezintă dificultatea de a înghiți alimente sau lichide și poate afecta semnificativ calitatea vieții. Diagnosticarea și intervenția timpurie sunt esențiale.</p>
+
+    <div class="info-grid">
+      <div class="info-visual">
+        <h3>Semne și simptome frecvente</h3>
+        <ul class="symptom-list">
+          <li><span class="symptom-dot" aria-hidden="true"></span>Tuse sau sufocare în timpul mesei</li>
+          <li><span class="symptom-dot" aria-hidden="true"></span>Senzație de mâncare blocată în gât sau piept</li>
+          <li><span class="symptom-dot" aria-hidden="true"></span>Regurgitare nazală a lichidelor</li>
+          <li><span class="symptom-dot" aria-hidden="true"></span>Durere la înghițire (odinofagie)</li>
+          <li><span class="symptom-dot" aria-hidden="true"></span>Pierdere involuntară în greutate</li>
+          <li><span class="symptom-dot" aria-hidden="true"></span>Pneumonii repetate (aspirație)</li>
+          <li><span class="symptom-dot" aria-hidden="true"></span>Modificarea vocii după mese</li>
+        </ul>
+      </div>
+
+      <div class="info-content">
+        <h3>Abordarea noastră terapeutică</h3>
+        <p>Fiecare pacient beneficiază de o evaluare logopedică completă a funcției de deglutiție, urmată de un plan individualizat de intervenție.</p>
+        <p>Utilizăm protocoale clinice validate internațional, combinate cu experiența dobândită în centre de referință din România, Marea Britanie și Suedia.</p>
+        <ul class="approach-list">
+          <li class="approach-item">
+            <div class="approach-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            Evaluare funcțională completă a deglutiției
+          </li>
+          <li class="approach-item">
+            <div class="approach-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            Manevre directe și indirecte de reabilitare
+          </li>
+          <li class="approach-item">
+            <div class="approach-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            Strategii compensatorii și posturale
+          </li>
+          <li class="approach-item">
+            <div class="approach-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            Consiliere pentru pacient și familie
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECHIPA -->
+<section id="echipa">
+  <div class="section-inner">
+    <div class="section-eyebrow">Echipa noastră</div>
+    <h2 class="section-title">Specialiști cu <span>experiență internațională</span></h2>
+    <p class="section-lead">Fiecare dintre noi a acumulat formare specializată în centre de referință europene, aducând în practică clinică cele mai recente protocoale internaționale.</p>
+
+    <div class="team-intro">
+
+      <!-- Mihaela Fotescu -->
+      <div class="team-card active" onclick="showDetail('mihaela', this)" role="button" tabindex="0" aria-expanded="true" onkeydown="if(event.key==='Enter')showDetail('mihaela',this)">
+        <div class="team-card-header">
+          <div class="team-photo">
+            <img src="images/foto-mihaela.jpg" alt="Mihaela Fotescu Zamfir" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <span class="initials" style="display:none">MF</span>
+          </div>
+          <div>
+            <div class="team-card-name">Mihaela Fotescu Zamfir</div>
+            <div class="team-card-role">Logoped Principal</div>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <p>43 de ani de activitate clinică, formare internațională în UK, Suedia, Belgia și Austria. Expertă în disfagie, voce și implant cohlear.</p>
+          <div class="team-tags">
+            <span class="team-tag">Disfagie</span>
+            <span class="team-tag">Implant cohlear</span>
+            <span class="team-tag">Voce</span>
+            <span class="team-tag">Formator</span>
+          </div>
+          <div class="team-contact">
+            <a href="tel:+40723326653">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.61a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              0723 326 653
+            </a>
+            <a href="mailto:fotescumihaela@yahoo.co.uk">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              fotescumihaela@yahoo.co.uk
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specialist 2 -->
+      <div class="team-card" onclick="showDetail('specialist2', this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key==='Enter')showDetail('specialist2',this)">
+        <div class="team-card-header">
+          <div class="team-photo">
+            <span class="initials">S2</span>
+          </div>
+          <div>
+            <div class="team-card-name">Prenume Nume</div>
+            <div class="team-card-role">Logoped</div>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <p>Specialist în terapia disfagiei, cu experiență în evaluarea și recuperarea tulburărilor de deglutiție la adulți și vârstnici.</p>
+          <div class="team-tags">
+            <span class="team-tag">Disfagie</span>
+            <span class="team-tag">Geriatrie</span>
+            <span class="team-tag">Neurologie</span>
+          </div>
+          <div class="team-contact">
+            <a href="tel:+40700000000">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.61a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              07XX XXX XXX
+            </a>
+            <a href="mailto:email@exemplu.ro">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              email@exemplu.ro
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specialist 3 -->
+      <div class="team-card" onclick="showDetail('specialist3', this)" role="button" tabindex="0" aria-expanded="false" onkeydown="if(event.key==='Enter')showDetail('specialist3',this)">
+        <div class="team-card-header">
+          <div class="team-photo">
+            <span class="initials">S3</span>
+          </div>
+          <div>
+            <div class="team-card-name">Prenume Nume</div>
+            <div class="team-card-role">Logoped</div>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <p>Specialist în terapia disfagiei pediatrice și la pacienți cu afecțiuni neurologice, cu formare în tehnici moderne de reabilitare.</p>
+          <div class="team-tags">
+            <span class="team-tag">Disfagie</span>
+            <span class="team-tag">Pediatrie</span>
+            <span class="team-tag">AVC</span>
+          </div>
+          <div class="team-contact">
+            <a href="tel:+40700000000">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.61a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              07XX XXX XXX
+            </a>
+            <a href="mailto:email@exemplu.ro">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              email@exemplu.ro
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Detail panels -->
+    <div id="detail-mihaela" class="team-detail visible" aria-live="polite">
+      <div class="detail-grid">
+        <div class="detail-photo">
+          <img src="images/foto-mihaela.jpg" alt="Mihaela Fotescu Zamfir" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <span class="initials-lg" style="display:none">MFZ</span>
+        </div>
+        <div>
+          <div class="detail-name">Mihaela Fotescu Zamfir</div>
+          <div class="detail-role">Logoped Principal · Formator Acreditat</div>
+          <div class="detail-bio">
+            <p>Pe parcursul a <strong>43 de ani de activitate</strong>, s-a specializat în domenii esențiale ale recuperării logopedice, audiologice și fonetice, cu accent deosebit pe terapia disfagiei.</p>
+            <p>A dobândit competențe avansate în evaluarea și reabilitarea deglutiției în cadrul unor centre internaționale de referință, colaborând cu echipe de specialiști din Anglia, Suedia, Belgia și Austria.</p>
+            <p>Colaborează cu <strong>I.F.A.C.F. O.R.L. „Dr. Hociotă"</strong> și deține cabinet individual de psihologie și logopedie din 2020.</p>
+          </div>
+          <div class="detail-sections">
+            <div class="detail-section">
+              <h4>Specializări</h4>
+              <ul class="detail-list">
+                <li>Disfagie — manevre directe și indirecte</li>
+                <li>Terapia auditiv-verbală post implant cohlear</li>
+                <li>Tulburări de voce și afonie</li>
+                <li>Demutizare pacienți hipoacuzici</li>
+                <li>Terapie verbală neurologică</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h4>Afilieri profesionale</h4>
+              <ul class="detail-list">
+                <li>Asociația Română de Foniatrie</li>
+                <li>Colegiul Psihologilor din București</li>
+                <li>Asociația Logopezilor din România</li>
+                <li>Referent UMF Carol Davila București</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="detail-specialist2" class="team-detail" aria-live="polite">
+      <div class="detail-grid">
+        <div class="detail-photo">
+          <span class="initials-lg">S2</span>
+        </div>
+        <div>
+          <div class="detail-name">Prenume Nume</div>
+          <div class="detail-role">Logoped · Specialist Disfagie</div>
+          <div class="detail-bio">
+            <p>Adaugă biografia și experiența profesională a celui de-al doilea specialist.</p>
+          </div>
+          <div class="detail-sections">
+            <div class="detail-section">
+              <h4>Specializări</h4>
+              <ul class="detail-list">
+                <li>De completat</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h4>Afilieri</h4>
+              <ul class="detail-list">
+                <li>De completat</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="detail-specialist3" class="team-detail" aria-live="polite">
+      <div class="detail-grid">
+        <div class="detail-photo">
+          <span class="initials-lg">S3</span>
+        </div>
+        <div>
+          <div class="detail-name">Prenume Nume</div>
+          <div class="detail-role">Logoped · Specialist Disfagie</div>
+          <div class="detail-bio">
+            <p>Adaugă biografia și experiența profesională a celui de-al treilea specialist.</p>
+          </div>
+          <div class="detail-sections">
+            <div class="detail-section">
+              <h4>Specializări</h4>
+              <ul class="detail-list">
+                <li>De completat</li>
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h4>Afilieri</h4>
+              <ul class="detail-list">
+                <li>De completat</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICII -->
+<section id="servicii">
+  <div class="section-inner">
+    <div class="section-eyebrow">Ce oferim</div>
+    <h2 class="section-title">Servicii de evaluare și terapie</h2>
+    <p class="section-lead">Abordare clinică completă, de la prima evaluare până la recuperarea funcției de deglutiție.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Evaluare clinică a deglutiției</h3>
+        <p>Evaluare funcțională completă, identificarea riscului de aspirație și stabilirea profilului de deglutiție al pacientului.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Terapie individualizată</h3>
+        <p>Program de reabilitare personalizat cu tehnici directe și indirecte, adaptat diagnosticului și nevoilor fiecărui pacient.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Consiliere familie</h3>
+        <p>Instruirea aparținătorilor în tehnici de alimentare sigură, adaptarea texturii alimentelor și managementul riscurilor.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Raport și plan de îngrijire</h3>
+        <p>Documentare completă a evaluării și a progresului terapeutic, cu recomandări pentru echipa multidisciplinară.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Terapie la domiciliu</h3>
+        <p>Sesiuni de terapie la domiciliul pacientului pentru cazurile în care deplasarea este dificilă sau imposibilă.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Teleconsultație</h3>
+        <p>Evaluare și consiliere online pentru pacienții din afara Bucureștiului sau pentru follow-up post-terapie.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-eyebrow">Contact</div>
+    <h2 class="section-title">Programează o <span>evaluare</span></h2>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p class="contact-intro">Contactează direct specialistul potrivit nevoilor tale sau completează formularul și te redirecționăm către cel mai potrivit membru al echipei.</p>
+
+        <div class="contact-specialist">
+          <div class="contact-specialist-name">Mihaela Fotescu Zamfir</div>
+          <div class="contact-specialist-role">Logoped Principal</div>
+          <div class="contact-links">
+            <a href="tel:+40723326653">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.61a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              0723 326 653
+            </a>
+            <a href="mailto:fotescumihaela@yahoo.co.uk">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              fotescumihaela@yahoo.co.uk
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-specialist">
+          <div class="contact-specialist-name">Specialist 2 — de completat</div>
+          <div class="contact-specialist-role">Logoped</div>
+          <div class="contact-links">
+            <a href="tel:+40700000000">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.61a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              07XX XXX XXX
+            </a>
+            <a href="mailto:email@exemplu.ro">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              email@exemplu.ro
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-specialist">
+          <div class="contact-specialist-name">Specialist 3 — de completat</div>
+          <div class="contact-specialist-role">Logoped</div>
+          <div class="contact-links">
+            <a href="tel:+40700000000">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.61a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              07XX XXX XXX
+            </a>
+            <a href="mailto:email@exemplu.ro">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              email@exemplu.ro
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <form class="contact-form" action="https://formspree.io/f/mgobbzed" method="POST">
+        <h3>Trimite o solicitare</h3>
+        <p>Te contactăm în cel mai scurt timp pentru a stabili o programare.</p>
+
+        <div class="form-group">
+          <label for="name">Numele tău</label>
+          <input type="text" id="name" name="name" placeholder="Ion Popescu" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="contact-detail">Telefon / Email</label>
+          <input type="text" id="contact-detail" name="contact-detail" placeholder="07xx xxx xxx sau email@exemplu.ro" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="specialist">Specialist preferat</label>
+          <select id="specialist" name="specialist">
+            <option value="">Oricare disponibil</option>
+            <option value="mihaela">Mihaela Fotescu Zamfir</option>
+            <option value="specialist2">Specialist 2</option>
+            <option value="specialist3">Specialist 3</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Descrieți problema</label>
+          <textarea id="message" name="message" placeholder="Descrieți pe scurt simptomele sau motivul programării..." required aria-required="true"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Trimite solicitarea</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Logopedie & Disfagie · Centru de specialitate</div>
+  <p>Mihaela Fotescu Zamfir · Specialist 2 · Specialist 3</p>
+  <p>© 2025 · București, România</p>
+  <div class="footer-links">
+    <a href="#disfagie">Despre disfagie</a>
+    <a href="#echipa">Echipa</a>
+    <a href="#servicii">Servicii</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(btn) {
+  var drawer = document.getElementById('mobile-drawer');
+  var isOpen = drawer.classList.toggle('open');
+  btn.setAttribute('aria-expanded', isOpen);
+  btn.setAttribute('aria-label', isOpen ? 'Închide meniul' : 'Deschide meniul');
+}
+document.getElementById('mobile-drawer').querySelectorAll('a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    document.getElementById('mobile-drawer').classList.remove('open');
+    var btn = document.querySelector('.nav-hamburger');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Deschide meniul');
+  });
+});
+
+function showDetail(id, card) {
+  // Hide all details
+  document.querySelectorAll('.team-detail').forEach(function(d) { d.classList.remove('visible'); });
+  document.querySelectorAll('.team-card').forEach(function(c) {
+    c.classList.remove('active');
+    c.setAttribute('aria-expanded', 'false');
+  });
+  // Show selected
+  document.getElementById('detail-' + id).classList.add('visible');
+  card.classList.add('active');
+  card.setAttribute('aria-expanded', 'true');
+  // Scroll to detail
+  document.getElementById('detail-' + id).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+
+</body>
+</html>
