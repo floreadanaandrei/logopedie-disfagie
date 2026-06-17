@@ -1,37 +1,68 @@
 {
   "specialists": [
     {
-      "name": "Mihaela Fotescu Zamfir",
-      "title": "Logoped Principal • Specialist Disfagie",
-      "phone": "0723 326 653",
-      "email": "fotescumihaela@yahoo.co.uk",
       "bio": "Cu peste 15 ani de experiență în logopedie, Mihaela Fotescu Zamfir este specializată în evaluarea și tratamentul disfagiei la adulți și copii.",
+      "name": "Mihaela Fotescu Zamfir",
+      "phone": "0723 326 653",
+      "specializari": [
+        "Disfagie — manevre directe și indirecte",
+        "Terapia auditiv-verbală post implant cohlear",
+        "Tulburări de voce și afonie",
+        "Demutizare pacienți hipoacuzici",
+        "Terapie verbală neurologică"
+      ],
       "photo": "/images/foto-mihaela.jpg",
-      "tags": ["Disfagie", "Implant cohlear", "Voce", "Formator"],
-      "specializari": ["Disfagie — manevre directe și indirecte", "Terapia auditiv-verbală post implant cohlear", "Tulburări de voce și afonie", "Demutizare pacienți hipoacuzici", "Terapie verbală neurologică"],
-      "afilieri": ["Asociația Română de Foniatrie", "Colegiul Psihologilor din București", "Asociația Logopezilor din România", "Referent UMF Carol Davila București"]
+      "title": "Logoped Principal • Specialist Disfagie",
+      "tags": [
+        "Disfagie",
+        "Implant cohlear",
+        "Voce",
+        "Formator"
+      ],
+      "afilieri": [
+        "Asociația Română de Foniatrie",
+        "Colegiul Psihologilor din București",
+        "Asociația Logopezilor din România",
+        "Referent UMF Carol Davila București"
+      ],
+      "email": "fotescumihaela@yahoo.co.uk"
     },
     {
-      "name": "Dana Andrei",
-      "title": "-Test",
-      "phone": "07XX XXX XXX",
-      "email": "email@exemplu.ro",
       "bio": "cum scheme?",
+      "name": "Dana Andrei",
+      "phone": "07XX XXX XXX",
+      "specializari": [
+        "Aici adaugam specializarile"
+      ],
       "photo": "",
-      "tags": ["Dans", "Balet"],
-      "specializari": ["De completat"],
-      "afilieri": ["De completat"]
+      "title": "-Test",
+      "tags": [
+        "Dans",
+        "Balet"
+      ],
+      "afilieri": [
+        "Afiliere- test"
+      ],
+      "email": "email@exemplu.ro"
     },
     {
-      "name": "Fotescu Andreu",
-      "title": "Test 2",
-      "phone": "0788888888",
-      "email": "andrei@exemplu.ro",
       "bio": "Tralalalala",
+      "name": "Fotescu Andreu",
+      "phone": "0788888888",
+      "specializari": [
+        "De completat"
+      ],
       "photo": "/images/poza_profil_03aug2022_testlio.jpg",
-      "tags": ["Disfagie", "Pediatrie", "AVC"],
-      "specializari": ["De completat"],
-      "afilieri": ["De completat"]
+      "title": "Test 2",
+      "tags": [
+        "Disfagie",
+        "Pediatrie",
+        "AVC"
+      ],
+      "afilieri": [
+        "De completat"
+      ],
+      "email": "andrei@exemplu.ro"
     }
   ]
 }
