@@ -8,21 +8,25 @@ public_folder: "/images"
 locale: ro
 
 collections:
-  - name: "posts"
-    label: "Articole Blog"
-    label_singular: "Articol"
-    folder: "posts"
-    create: true
-    delete: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Titlu", name: "title", widget: "string" }
-      - { label: "Data publicării", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
-      - { label: "Autor", name: "author", widget: "select", options: ["Mihaela Fotescu Zamfir", "Specialist 2", "Specialist 3"] }
-      - { label: "Categorie", name: "category", widget: "select", options: ["Disfagie", "Evaluare", "Tratament", "Noutăți", "Sfaturi"] }
-      - { label: "Rezumat scurt", name: "excerpt", widget: "text", hint: "Maxim 2-3 propoziții afișate în lista de articole" }
-      - { label: "Imagine articol", name: "image", widget: "image", required: false }
-      - { label: "Conținut articol", name: "body", widget: "markdown" }
+  - name: "blog"
+    label: "Blog"
+    files:
+      - label: "Articole"
+        name: "posts"
+        file: "data/posts.json"
+        fields:
+          - name: "posts"
+            label: "Lista articole"
+            widget: "list"
+            label_singular: "Articol"
+            fields:
+              - { label: "Titlu", name: "title", widget: "string" }
+              - { label: "Data publicării", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+              - { label: "Autor", name: "author", widget: "select", options: ["Mihaela Fotescu Zamfir", "Specialist 2", "Specialist 3"] }
+              - { label: "Categorie", name: "category", widget: "select", options: ["Disfagie", "Evaluare", "Tratament", "Noutăți", "Sfaturi"] }
+              - { label: "Rezumat scurt", name: "excerpt", widget: "text", hint: "Maxim 2-3 propoziții afișate în lista de articole" }
+              - { label: "Imagine articol", name: "image", widget: "image", required: false }
+              - { label: "Conținut articol", name: "body", widget: "markdown" }
 
   - name: "settings"
     label: "Setări Site"

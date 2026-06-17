@@ -205,46 +205,15 @@
 <!-- marked.js for markdown rendering -->
 <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
 <script>
-  // ---- Posts manifest (list of markdown files) ----
-  // This list is updated automatically when you add posts via CMS.
-  // If you need to add it manually: add the filename to the array below.
-  const POST_FILES = [
-    'posts/2026-06-17-ce-este-disfagia.md'
-  ];
-
   let allPosts = [];
   let activeCategory = '';
 
-  // ---- Load & parse markdown posts ----
+  // ---- Load posts from data/posts.json (managed by CMS) ----
   async function loadPosts() {
-    const results = await Promise.allSettled(
-      POST_FILES.map(async (file) => {
-        const res = await fetch(file);
-        if (!res.ok) throw new Error('Not found: ' + file);
-        const text = await res.text();
-        return parseMarkdown(text, file);
-      })
-    );
-    allPosts = results
-      .filter(r => r.status === 'fulfilled')
-      .map(r => r.value)
-      .sort((a, b) => new Date(b.date) - new Date(a.date));
+    const res = await fetch('data/posts.json?v=' + Date.now());
+    const data = await res.json();
+    allPosts = (data.posts || []).sort((a, b) => new Date(b.date) - new Date(a.date));
     renderPosts(allPosts);
-  }
-
-  // ---- Parse frontmatter + body ----
-  function parseMarkdown(text, file) {
-    const fm = {};
-    let body = text;
-    const match = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-    if (match) {
-      match[1].split('\n').forEach(line => {
-        const [key, ...val] = line.split(': ');
-        if (key) fm[key.trim()] = val.join(': ').trim();
-      });
-      body = match[2];
-    }
-    return { ...fm, body, file };
   }
 
   // ---- Format date ----
