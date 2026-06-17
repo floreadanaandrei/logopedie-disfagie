@@ -13,7 +13,7 @@
       "title": "-Test",
       "phone": "07XX XXX XXX",
       "email": "email@exemplu.ro",
-      "bio": "Descriere specialist.",
+      "bio": "cum scheme?",
       "photo": ""
     },
     {
@@ -22,7 +22,7 @@
       "phone": "0788888888",
       "email": "andrei@exemplu.ro",
       "bio": "Tralalalala",
-      "photo": "/images/poza-profil-2.jpg"
+      "photo": "/images/poza_profil_03aug2022_testlio.jpg"
     }
   ]
 }
