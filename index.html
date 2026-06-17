@@ -1315,7 +1315,7 @@ function showDetail(id, card) {
           }
         }
 
-        // Card: descriere scurtă + poză
+        // Card: descriere scurtă + poză + taguri
         if (card) {
           if (s.bio) {
             var cardBio = card.querySelector('.team-card-body > p');
@@ -1326,6 +1326,14 @@ function showDetail(id, card) {
             var cardInitials = card.querySelector('.team-photo .initials');
             if (cardImg) { cardImg.src = s.photo; cardImg.style.display = ''; }
             if (cardInitials) cardInitials.style.display = 'none';
+          }
+          if (s.tags && s.tags.length) {
+            var tagsEl = card.querySelector('.team-tags');
+            if (tagsEl) {
+              tagsEl.innerHTML = s.tags.map(function(t) {
+                return '<span class="team-tag">' + t + '</span>';
+              }).join('');
+            }
           }
         }
 

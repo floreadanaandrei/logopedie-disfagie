@@ -41,3 +41,8 @@ collections:
               - { label: "Email", name: "email", widget: "string" }
               - { label: "Descriere scurtă", name: "bio", widget: "text" }
               - { label: "Fotografie", name: "photo", widget: "image", required: false }
+              - label: "Etichete specializări"
+                name: "tags"
+                widget: "list"
+                hint: "Ex: Disfagie, Neurologie, Pediatrie"
+                field: { label: "Etichetă", name: "tag", widget: "string" }
