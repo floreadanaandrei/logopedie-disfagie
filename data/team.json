@@ -28,22 +28,27 @@
       "email": "fotescumihaela@yahoo.co.uk"
     },
     {
-      "bio": "cum scheme?",
-      "name": "Dana Andrei",
-      "phone": "07XX XXX XXX",
+      "bio": "Psiholog și logoped (Psihopedagogie Specială), specializată în evaluarea și terapia disfagiei la adulți și copii. Lucrează în Cabinetul Individual de Psihologie Cobârzan Valentina Simona din Cluj-Napoca.",
+      "name": "Simona Cobârzan",
+      "phone": "0742 074 116",
       "specializari": [
-        "Aici adaugam specializarile"
+        "Tulburări de deglutiție: disfagie",
+        "Tulburări de voce: afonie, disfonie, fonastenie",
+        "Tulburări de limbaj: dislalie, rinolalie, dizartrie, tahilalie, bradilalie",
+        "Tulburări polimorfe de limbaj: afazia, alalia"
       ],
-      "photo": "",
-      "title": "-Test",
+      "photo": "/images/simona-cobarzan.jpg",
+      "title": "Psiholog, Logoped • Specialist Disfagie",
       "tags": [
-        "Dans",
-        "Balet"
+        "Disfagie",
+        "Voce",
+        "Limbaj",
+        "Cluj-Napoca"
       ],
       "afilieri": [
-        "Afiliere- test"
+        "În curs de actualizare"
       ],
-      "email": "email@exemplu.ro"
+      "email": "simona_v_voda@yahoo.com"
     },
     {
       "bio": "Tralalalala",
