@@ -1227,27 +1227,27 @@ footer p { color: rgba(255,255,255,0.75); font-size: 13px; margin-bottom: 4px; }
           <input type="text" id="contact-detail" name="contact-detail" placeholder="07xx xxx xxx sau email@exemplu.ro" required aria-required="true" autocomplete="tel">
         </div>
         <div class="form-group">
+          <label for="motiv">Pentru ce doriți programare?</label>
+          <select id="motiv" name="motiv" required aria-required="true">
+            <option value="" disabled selected>Alegeți tipul de programare</option>
+            <option data-specialisti="mihaela specialist2 specialist3">Evaluare deglutiție (disfagie)</option>
+            <option data-specialisti="mihaela specialist2 specialist3">Terapie deglutiție (disfagie)</option>
+            <option data-specialisti="mihaela specialist2">Terapie voce (afonie, disfonie)</option>
+            <option data-specialisti="mihaela specialist2">Terapie limbaj (dislalie, întârzieri)</option>
+            <option data-specialisti="mihaela specialist2 specialist3">Recuperare după AVC (afazie)</option>
+            <option data-specialisti="mihaela">Terapie auditiv-verbală / implant cohlear</option>
+            <option data-specialisti="mihaela specialist2 specialist3">Altceva — discutăm la telefon</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label for="specialist">Specialist preferat</label>
-          <select id="specialist" name="specialist" required aria-required="true">
+          <select id="specialist" name="specialist" required aria-required="true" aria-describedby="specialist-hint">
             <option value="" disabled selected>Alegeți specialistul</option>
             <option value="mihaela">Mihaela Fotescu Zamfir</option>
             <option value="specialist2">Specialist 2</option>
             <option value="specialist3">Specialist 3</option>
           </select>
-        </div>
-        <div class="form-group">
-          <label for="motiv">Pentru ce doriți programare?</label>
-          <select id="motiv" name="motiv" required aria-required="true" aria-describedby="motiv-hint">
-            <option value="" disabled selected>Alegeți tipul de programare</option>
-            <option>Evaluare deglutiție (disfagie)</option>
-            <option>Terapie deglutiție (disfagie)</option>
-            <option>Terapie voce (afonie, disfonie)</option>
-            <option>Terapie limbaj (dislalie, întârzieri)</option>
-            <option>Recuperare după AVC (afazie)</option>
-            <option>Terapie auditiv-verbală / implant cohlear</option>
-            <option>Altceva — discutăm la telefon</option>
-          </select>
-          <p class="form-hint" id="motiv-hint">Vă rugăm să nu trimiteți detalii medicale prin formular — le discutăm la telefon sau la evaluare.</p>
+          <p class="form-hint" id="specialist-hint">Apar doar specialiștii care oferă tipul de programare ales.</p>
         </div>
         <div class="form-consent">
           <input type="checkbox" id="consimtamant" name="consimtamant" value="Da — acord pentru prelucrarea datelor (inclusiv date privind sănătatea) în vederea programării" required aria-required="true">
@@ -1392,6 +1392,36 @@ fetch('data/site.json').then(function(r){return r.json();}).then(function(d){
 }).catch(function(){});
 </script>
 
+<!-- Formular: specialiștii disponibili în funcție de tipul de programare -->
+<script>
+(function() {
+  var motiv = document.getElementById('motiv');
+  var spec = document.getElementById('specialist');
+  if (!motiv || !spec) return;
+  var placeholder = spec.options[0];
+  // Păstrăm toate opțiunile (Safari nu ascunde <option> cu CSS, așa că le scoatem/adăugăm)
+  var all = Array.prototype.slice.call(spec.options, 1);
+  window.specialistOptions = all;
+  spec.disabled = true;                       // activ după alegerea tipului de programare
+
+  motiv.addEventListener('change', function() {
+    var opt = motiv.options[motiv.selectedIndex];
+    var allowed = (opt.getAttribute('data-specialisti') || '').split(/\s+/);
+    var current = spec.value;
+    while (spec.options.length > 1) spec.remove(1);
+    all.forEach(function(o) { if (allowed.indexOf(o.value) !== -1) spec.appendChild(o); });
+    spec.disabled = false;
+    if (spec.options.length === 2) {
+      spec.selectedIndex = 1;                 // un singur specialist: îl selectăm direct
+    } else if (allowed.indexOf(current) !== -1) {
+      spec.value = current;                   // păstrăm alegerea dacă e încă valabilă
+    } else {
+      placeholder.selected = true;
+    }
+  });
+})();
+</script>
+
 <!-- Încarcă date echipă din CMS -->
 <script>
 (function() {
@@ -1518,7 +1548,7 @@ fetch('data/site.json').then(function(r){return r.json();}).then(function(d){
         }
 
         // Selectul din formular
-        var opts = document.querySelectorAll('#specialist option:not([value=""])');
+        var opts = window.specialistOptions || document.querySelectorAll('#specialist option:not([value=""])');
         if (opts[i] && s.name) opts[i].textContent = s.name;
 
         // Hero avatar: nume, titlu, poză

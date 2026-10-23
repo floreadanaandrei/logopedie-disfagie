@@ -34,6 +34,11 @@ Nu considera sarcina încheiată până nu sunt făcuți toți cei trei pași.
 - `index.html` — pagina principală (HTML/CSS/JS static, fără build).
 - `data/team.json` — specialiștii; pozițiile 1–3 corespund cardurilor
   `mihaela`, `specialist2`, `specialist3` din `index.html` (populate prin JS).
+- Formularul de contact (Formspree): pacientul alege întâi tipul de programare (`#motiv`),
+  apoi specialistul (`#specialist`). Ce specialiști apar pentru fiecare tip e stabilit în
+  atributul `data-specialisti` al opțiunilor din `#motiv` — actualizează-l când se schimbă
+  specializările sau se adaugă un specialist. Nu adăuga câmpuri text libere pentru simptome
+  (termenii Formspree interzic datele sensibile).
 - `data/site.json` — texte pentru secțiuni (hero, despre disfagie, echipă, servicii, contact).
 - `data/posts.json`, `posts/`, `blog.html` — blogul.
 - `admin/` — Decap/Netlify CMS (`config.yml`), backend git-gateway.
