@@ -660,6 +660,7 @@ section { padding: 5rem 2rem; }
   outline-offset: 2px;
 }
 .form-group textarea { min-height: 110px; resize: vertical; }
+.form-hint { font-size: 12.5px; color: var(--text-mid); line-height: 1.5; margin: 2px 0 0; }
 .form-submit {
   background: var(--navy); color: #ffffff;
   border: none; padding: 13px 24px;
@@ -1235,8 +1236,18 @@ footer p { color: rgba(255,255,255,0.75); font-size: 13px; margin-bottom: 4px; }
           </select>
         </div>
         <div class="form-group">
-          <label for="message">Descrieți problema</label>
-          <textarea id="message" name="message" placeholder="Descrieți pe scurt simptomele sau motivul programării..." required aria-required="true"></textarea>
+          <label for="motiv">Pentru ce doriți programare?</label>
+          <select id="motiv" name="motiv" required aria-required="true" aria-describedby="motiv-hint">
+            <option value="" disabled selected>Alegeți tipul de programare</option>
+            <option>Evaluare deglutiție (disfagie)</option>
+            <option>Terapie deglutiție (disfagie)</option>
+            <option>Terapie voce (afonie, disfonie)</option>
+            <option>Terapie limbaj (dislalie, întârzieri)</option>
+            <option>Recuperare după AVC (afazie)</option>
+            <option>Terapie auditiv-verbală / implant cohlear</option>
+            <option>Altceva — discutăm la telefon</option>
+          </select>
+          <p class="form-hint" id="motiv-hint">Vă rugăm să nu trimiteți detalii medicale prin formular — le discutăm la telefon sau la evaluare.</p>
         </div>
         <div class="form-consent">
           <input type="checkbox" id="consimtamant" name="consimtamant" value="Da — acord pentru prelucrarea datelor (inclusiv date privind sănătatea) în vederea programării" required aria-required="true">
