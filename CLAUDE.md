@@ -48,4 +48,4 @@ Nu considera sarcina încheiată până nu sunt făcuți toți cei trei pași.
 
 - Poziția 2: Simona Cobârzan (Cluj-Napoca). Afilierile ei sunt „În curs de actualizare”
   până primește acordul asociațiilor (SRF, ASTTLR, APPA).
-- Poziția 3: încă o intrare de test („Fotescu Andreu”, „Test 2”).
+- Poziția 3: încă o intrare de test („Fotescu Andrei”, „Test 2”, e-mail andreidana82@yahoo.com).
