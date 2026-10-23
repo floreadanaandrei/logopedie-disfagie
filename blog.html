@@ -72,7 +72,9 @@
     .post-card { background: var(--white); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); transition: box-shadow .2s, transform .2s; }
     .post-card:hover { box-shadow: 0 8px 24px rgba(27,58,92,.12); transform: translateY(-2px); }
 
-    .post-card-img { width: 100%; height: 200px; object-fit: cover; background: var(--navy); display: flex; align-items: center; justify-content: center; }
+    .post-card-media { position: relative; height: 200px; overflow: hidden; background: var(--navy); }
+    .post-card-media::before { content: ''; position: absolute; inset: -24px; background: var(--img) center / cover no-repeat; filter: blur(18px) brightness(.85); }
+    .post-card-img { position: relative; display: block; width: 100%; height: 100%; object-fit: contain; }
     .post-card-img-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); display: flex; align-items: center; justify-content: center; }
     .post-card-img-placeholder svg { width: 48px; height: 48px; opacity: .4; }
 
@@ -119,7 +121,7 @@
     .article-content ul, .article-content ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
     .article-content li { margin-bottom: .4rem; }
     .article-content strong { color: var(--navy); }
-    .article-img { width: 100%; max-height: 400px; object-fit: cover; border-radius: var(--radius); margin-bottom: 2rem; }
+    .article-img { display: block; max-width: 100%; max-height: 400px; width: auto; height: auto; margin: 0 auto 2rem; border-radius: var(--radius); }
 
     /* FOOTER */
     footer { background: var(--navy-dark); color: rgba(255,255,255,.7); text-align: center; padding: 2rem; font-size: .9rem; }
@@ -248,7 +250,7 @@
     grid.innerHTML = posts.map((post, i) => `
       <article class="post-card" aria-labelledby="post-title-${i}">
         ${post.image
-          ? `<img src="${post.image}" alt="${post.title || ''}" class="post-card-img" loading="lazy" />`
+          ? `<div class="post-card-media" style="--img: url('${post.image}')"><img src="${post.image}" alt="${post.title || ''}" class="post-card-img" loading="lazy" /></div>`
           : `<div class="post-card-img-placeholder" aria-hidden="true">
                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
              </div>`}
