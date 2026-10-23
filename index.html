@@ -1223,8 +1223,8 @@ footer p { color: rgba(255,255,255,0.75); font-size: 13px; margin-bottom: 4px; }
         </div>
         <div class="form-group">
           <label for="specialist">Specialist preferat</label>
-          <select id="specialist" name="specialist">
-            <option value="">Oricare disponibil</option>
+          <select id="specialist" name="specialist" required aria-required="true">
+            <option value="" disabled selected>Alegeți specialistul</option>
             <option value="mihaela">Mihaela Fotescu Zamfir</option>
             <option value="specialist2">Specialist 2</option>
             <option value="specialist3">Specialist 3</option>
@@ -1498,8 +1498,8 @@ fetch('data/site.json').then(function(r){return r.json();}).then(function(d){
         }
 
         // Selectul din formular
-        var opts = document.querySelectorAll('#specialist option');
-        if (opts[i + 1] && s.name) opts[i + 1].textContent = s.name;
+        var opts = document.querySelectorAll('#specialist option:not([value=""])');
+        if (opts[i] && s.name) opts[i].textContent = s.name;
 
         // Hero avatar: nume, titlu, poză
         var heroSpecialists = document.querySelectorAll('.hero-specialist');
