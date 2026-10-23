@@ -670,6 +670,10 @@ section { padding: 5rem 2rem; }
   letter-spacing: 0.02em;
 }
 .form-submit:hover { background: var(--navy-light); }
+.form-consent { display: flex; gap: 10px; align-items: flex-start; margin: .25rem 0 1.25rem; }
+.form-consent input { width: 18px; height: 18px; margin-top: 3px; flex-shrink: 0; accent-color: var(--navy); cursor: pointer; }
+.form-consent label { font-size: 13px; color: var(--text-mid); line-height: 1.55; cursor: pointer; }
+.form-consent a { color: var(--navy); font-weight: 600; }
 
 /* =====================
    FOOTER
@@ -1234,6 +1238,10 @@ footer p { color: rgba(255,255,255,0.75); font-size: 13px; margin-bottom: 4px; }
           <label for="message">Descrieți problema</label>
           <textarea id="message" name="message" placeholder="Descrieți pe scurt simptomele sau motivul programării..." required aria-required="true"></textarea>
         </div>
+        <div class="form-consent">
+          <input type="checkbox" id="consimtamant" name="consimtamant" value="Da — acord pentru prelucrarea datelor (inclusiv date privind sănătatea) în vederea programării" required aria-required="true">
+          <label for="consimtamant">Sunt de acord cu prelucrarea datelor mele, inclusiv a celor privind sănătatea, pentru a fi contactat(ă) în vederea programării. Am citit <a href="confidentialitate.html" target="_blank" rel="noopener">politica de confidențialitate</a>.</label>
+        </div>
         <button type="submit" class="form-submit">Trimite solicitarea</button>
       </form>
     </div>
@@ -1253,6 +1261,7 @@ footer p { color: rgba(255,255,255,0.75); font-size: 13px; margin-bottom: 4px; }
     <a href="#servicii">Servicii</a>
     <a href="#contact">Contact</a>
     <a href="blog.html">Blog</a>
+    <a href="confidentialitate.html">Confidențialitate</a>
   </div>
 </footer>
 
